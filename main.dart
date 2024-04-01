@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:shared_preferences/shared_preferences.dart'; // Import for shared preferences
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const DebtManagerApp());
@@ -44,12 +44,12 @@ class _DebtManagerHomePageState extends State<DebtManagerHomePage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _amountController = TextEditingController();
   List<DebtItem> _debtsList = [];
-  bool _isOwedByUser = false; // State variable for checkbox
+  bool _isOwedByUser = false;
 
   @override
   void initState() {
     super.initState();
-    _loadSavedData(); // Load saved data when the widget initializes
+    _loadSavedData(); 
   }
 
   @override
@@ -132,7 +132,7 @@ class _DebtManagerHomePageState extends State<DebtManagerHomePage> {
             ),
           ),
           Positioned(
-            // Positioned for absolute positioning
+           
             left: 0,
             right: 0,
             bottom: 0,
@@ -174,20 +174,20 @@ class _DebtManagerHomePageState extends State<DebtManagerHomePage> {
       _debtsList.add(DebtItem(
         name: name,
         amount: amount,
-        isOwedByUser: _isOwedByUser, // Use the current checkbox state
+        isOwedByUser: _isOwedByUser,
       ));
     });
 
     _nameController.clear();
     _amountController.clear();
-    _saveData(); // Save the updated list after adding a new debt
+    _saveData(); 
   }
 
   void _deleteDebt(DebtItem debt) {
     setState(() {
       _debtsList.remove(debt);
     });
-    _saveData(); // Save the updated list after deleting a debt
+    _saveData(); 
   }
 
   void _saveData() async {
@@ -217,7 +217,6 @@ class _DebtManagerHomePageState extends State<DebtManagerHomePage> {
   }
 }
 
-// Function to launch the URL
 void _launchURL() async {
   const url =
       'https://www.instagram.com/malik._.shujaat?igshid=emR0eGQ1OGdocG04';
